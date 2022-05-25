@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: recursos_propios
+  datasource:
+    url: jdbc:mysql://localhost:3306/recursos_propios?serverTimezone=America/Buenos_Aires&useLegacyDatetimeCode=false
+    username: root
+    password:
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate.ddl-auto: none
+  # Gmail SMTP
+
+  liquibase:
+    change-log: classpath:/db.changelog/db.changelog-master.xml
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
+
