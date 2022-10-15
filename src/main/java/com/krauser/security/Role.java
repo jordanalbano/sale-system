@@ -1,10 +1,10 @@
-package ar.edu.unrn.security;
+package com.krauser.security;
 
 import java.io.Serializable;
 
 public enum Role implements Serializable {
 
-    ROLE_ADMIN("Administrador"), ROLE_RECTORADO("Rectorado"), ROLE_POSTULANTE("Postulante");
+    ROLE_ADMIN("Administrador"), ROLE_EMPLOYEE("Empleado");
 
     private String description;
 

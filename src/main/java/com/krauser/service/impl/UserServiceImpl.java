@@ -1,10 +1,10 @@
-package ar.edu.unrn.service.impl;
+package com.krauser.service.impl;
 
-import ar.edu.unrn.dto.UserDTO;
-import ar.edu.unrn.exceptions.UserUnknownException;
-import ar.edu.unrn.model.User;
-import ar.edu.unrn.repository.UserRepository;
-import ar.edu.unrn.service.UserService;
+import com.krauser.dto.UserDTO;
+import com.krauser.exceptions.UserUnknownException;
+import com.krauser.model.User;
+import com.krauser.repository.UserRepository;
+import com.krauser.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

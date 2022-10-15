@@ -4,12 +4,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    <changeSet author="pcastro" id="1">
+    <changeSet author="jalbano" id="1">
         <createSequence minValue="1" incrementBy="1"
                         sequenceName="hibernate_sequence"/>
     </changeSet>
 
-    <changeSet author="pcastro" id="2">
+    <changeSet author="jalbano" id="2">
         <createTable tableName="users">
             <column name="id" type="VARCHAR(255)">
                 <constraints primaryKey="true"/>
@@ -26,7 +26,7 @@
         </modifySql>
     </changeSet>
 
-    <changeSet author="pcastro" id="addColumn">
+    <changeSet author="jalbano" id="addColumn">
         <addColumn tableName="users">
             <column afterColumn="username"
                     name="created_at"
@@ -35,7 +35,7 @@
         </addColumn>
     </changeSet>
 
-    <changeSet author="pcastro" id="addEnabledColumn">
+    <changeSet author="jalbano" id="addEnabledColumn">
         <addColumn tableName="users">
             <column beforeColumn="created_at"
                     name="enabled"
@@ -44,7 +44,7 @@
         </addColumn>
     </changeSet>
 
-    <changeSet author="pcastro" id="inserts">
+    <changeSet author="jalbano" id="inserts">
         <sqlFile dbms="mysql" path="db.changelog/sql/insert_users.sql"/>
     </changeSet>
 

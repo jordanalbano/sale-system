@@ -1,4 +1,4 @@
-package ar.edu.unrn.config;
+package com.krauser.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +17,9 @@ public class SwaggerConfig {
 
     @Bean
     public Docket docket(){
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.SWAGGER_12)
                 .select()
-                .apis( RequestHandlerSelectors.basePackage("ar.edu.unrn") )
+                .apis( RequestHandlerSelectors.basePackage("com.krauser") )
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
@@ -27,17 +27,17 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("Runnning API")
-                .description("API del Proyecto de recursos propios, para el área de tesorería")
+                .title("Running API")
+                .description("API del Proyecto de sistema de ventas ")
                 .version("1.0")
                 .contact(contact())
                 .build();
     }
 
     private Contact contact(){
-        return new Contact("Nicolas Castro",
-                "http://git.lia.unrn.edu.ar/pcastro",
-                "pcastro@unrn.edu.ar");
+        return new Contact("Jordan albano",
+                "https://github.com/jalbanol",
+                "jalbano@unrn.edu.ar");
     }
 
 }

@@ -1,8 +1,8 @@
-package ar.edu.unrn.controller;
+package com.krauser.controller;
 
-import ar.edu.unrn.dto.UserDTO;
-import ar.edu.unrn.exceptions.UserUnknownException;
-import ar.edu.unrn.service.UserService;
+import com.krauser.dto.UserDTO;
+import com.krauser.exceptions.UserUnknownException;
+import com.krauser.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,11 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService usersService;
+    private final UserService usersService;
+
+    public UserController(UserService usersService) {
+        this.usersService = usersService;
+    }
 
     @PostMapping("/create")
     @ApiOperation("Agregar un usuario, el nombre de usuario no se puede repetir")
@@ -38,7 +41,7 @@ public class UserController {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/findByUsername/{username}")
     @ApiOperation("Recuperar un usuario a partir de su nombre de usuario")
     public ResponseEntity<?> get(@PathVariable String username) {
         UserDTO userDTO = null;
@@ -50,7 +53,7 @@ public class UserController {
         return ResponseEntity.ok().body(userDTO);
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/deleteByUsername/{username}")
     @ApiOperation("Eliminar un usuario a partir de su nombre de usuario")
     public ResponseEntity<?> deleteByUsername(@PathVariable String username) {
         Map<String, Object> response = new HashMap<>();
@@ -58,7 +61,7 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PutMapping("/{username}")
+    @PutMapping("/update/{username}")
     @ApiOperation("Actualizar los datos de un usuario")
     public ResponseEntity<?> update(@PathVariable String username, @RequestBody UserDTO dto) {
         UserDTO userDTO = new UserDTO();
@@ -69,8 +72,8 @@ public class UserController {
         UserDTO userDTO = new UserDTO();
         return ResponseEntity.status(HttpStatus.OK).body(userDTO);
     }
-
-    public ResponseEntity<?> updatePassword() {
+    @PutMapping("/updatePassword/{password}")
+    public ResponseEntity<?> updatePassword(@PathVariable  String password) {
         UserDTO userDTO = new UserDTO();
         return ResponseEntity.status(HttpStatus.OK).body(userDTO);
     }

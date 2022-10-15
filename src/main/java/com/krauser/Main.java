@@ -1,4 +1,4 @@
-package ar.edu.unrn;
+package com.krauser;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

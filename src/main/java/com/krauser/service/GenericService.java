@@ -1,4 +1,4 @@
-package ar.edu.unrn.service;
+package com.krauser.service;
 
 import java.util.Collection;
 

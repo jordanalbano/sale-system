@@ -1,6 +1,6 @@
-package ar.edu.unrn.repository;
+package com.krauser.repository;
 
-import ar.edu.unrn.model.User;
+import com.krauser.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, String> {

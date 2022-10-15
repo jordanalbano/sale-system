@@ -1,4 +1,4 @@
-package ar.edu.unrn.config;
+package com.krauser.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

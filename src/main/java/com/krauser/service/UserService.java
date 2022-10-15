@@ -1,7 +1,7 @@
-package ar.edu.unrn.service;
+package com.krauser.service;
 
-import ar.edu.unrn.dto.UserDTO;
-import ar.edu.unrn.exceptions.UserUnknownException;
+import com.krauser.dto.UserDTO;
+import com.krauser.exceptions.UserUnknownException;
 
 public interface UserService extends GenericService<UserDTO> {
 

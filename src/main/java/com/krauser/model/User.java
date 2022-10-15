@@ -1,33 +1,26 @@
-package ar.edu.unrn.dto;
+package com.krauser.model;
 
-import ar.edu.unrn.security.Role;
+import com.krauser.security.Role;
 
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class UserDTO implements Serializable {
+@Entity
+@Table(name = "users")
+public class User {
 
+    @Id
     private String id;
-
-    @NotNull
     private String username;
-
+    private String password;
+    @Column(name = "created_at")
     private LocalDate createdAt;
     private Boolean enabled;
-    private String password;
+    @Enumerated(EnumType.STRING)
     private Role role;
 
-    public UserDTO() {
+    public User() {
 
-    }
-
-    public UserDTO(String anId, String anUsername, LocalDate createdAt, Boolean enabled, String password) {
-        this.setId(anId);
-        this.setUsername(anUsername);
-        this.setCreatedAt(createdAt);
-        this.setEnabled(enabled);
-        this.setPassword(password);
     }
 
     public String getId() {
@@ -46,6 +39,14 @@ public class UserDTO implements Serializable {
         this.username = anUsername;
     }
 
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String aPassword) {
+        this.password = aPassword;
+    }
+
     public LocalDate getCreatedAt() {
         return createdAt;
     }
@@ -62,14 +63,6 @@ public class UserDTO implements Serializable {
         this.enabled = enabled;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Role getRole() {
         return role;
     }
@@ -78,4 +71,20 @@ public class UserDTO implements Serializable {
         this.role = role;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
 }

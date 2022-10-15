@@ -1,26 +1,33 @@
-package ar.edu.unrn.model;
+package com.krauser.dto;
 
-import ar.edu.unrn.security.Role;
+import com.krauser.security.Role;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserDTO implements Serializable {
 
-    @Id
     private String id;
+
+    @NotNull
     private String username;
-    private String password;
-    @Column(name = "created_at")
+
     private LocalDate createdAt;
     private Boolean enabled;
-    @Enumerated(EnumType.STRING)
+    private String password;
     private Role role;
 
-    public User() {
+    public UserDTO() {
 
+    }
+
+    public UserDTO(String anId, String anUsername, LocalDate createdAt, Boolean enabled, String password) {
+        this.setId(anId);
+        this.setUsername(anUsername);
+        this.setCreatedAt(createdAt);
+        this.setEnabled(enabled);
+        this.setPassword(password);
     }
 
     public String getId() {
@@ -39,14 +46,6 @@ public class User {
         this.username = anUsername;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String aPassword) {
-        this.password = aPassword;
-    }
-
     public LocalDate getCreatedAt() {
         return createdAt;
     }
@@ -63,6 +62,14 @@ public class User {
         this.enabled = enabled;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Role getRole() {
         return role;
     }
@@ -71,20 +78,4 @@ public class User {
         this.role = role;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
-    }
 }

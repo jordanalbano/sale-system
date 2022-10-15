@@ -1,8 +1,11 @@
 spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
   application:
-    name: recursos_propios
+    name: sale_system
   datasource:
-    url: jdbc:mysql://localhost:3306/recursos_propios?serverTimezone=America/Buenos_Aires&useLegacyDatetimeCode=false
+    url: jdbc:mysql://localhost:3306/sale_system?serverTimezone=America/Buenos_Aires&useLegacyDatetimeCode=false
     username: root
     password:
     testWhileIdle: true

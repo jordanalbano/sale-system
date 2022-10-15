@@ -1,4 +1,4 @@
-package ar.edu.unrn.exceptions;
+package com.krauser.exceptions;
 
 public class UsernameNotUniqueException extends Exception {
 }
