@@ -48,7 +48,7 @@ public class UserController {
         try {
             userDTO = usersService.findByUsername(username);
         } catch (UserUnknownException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nombre de usuario inexistente");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Nombre de usuario inexistente");
         }
         return ResponseEntity.ok().body(userDTO);
     }
