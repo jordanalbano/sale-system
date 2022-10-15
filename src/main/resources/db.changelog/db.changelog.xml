@@ -17,6 +17,10 @@
             <column name="password" type="VARCHAR(255)"/>
             <column name="username" type="VARCHAR(255)"/>
             <column name="role" type="VARCHAR(255)"/>
+            <column name="deleted_at" type="datetime"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="google_profile_picture" type="varchar(255)"/>
+
         </createTable>
         <rollback>
             <dropTable tableName="users"/>

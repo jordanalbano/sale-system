@@ -15,9 +15,12 @@ public class UserDTO implements Serializable {
 
     private LocalDate createdAt;
     private Boolean enabled;
+    private String email;
     private String password;
     private Role role;
+    private LocalDate deletedAt;
 
+    private String googleProfilePicture;
     public UserDTO() {
 
     }
@@ -78,4 +81,27 @@ public class UserDTO implements Serializable {
         this.role = role;
     }
 
+    public LocalDate getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDate deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGoogleProfilePicture() {
+        return googleProfilePicture;
+    }
+
+    public void setGoogleProfilePicture(String googleProfilePicture) {
+        this.googleProfilePicture = googleProfilePicture;
+    }
 }

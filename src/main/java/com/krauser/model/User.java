@@ -3,7 +3,7 @@ package com.krauser.model;
 import com.krauser.security.Role;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -13,9 +13,14 @@ public class User {
     private String id;
     private String username;
     private String password;
+    @Column(name = "google_profile_picture")
+    private String googleProfilePicture;
     @Column(name = "created_at")
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
     private Boolean enabled;
+    private String email;
+    @Column(name = "deleted_at")
+    private LocalDateTime deletedAt;
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -47,11 +52,11 @@ public class User {
         this.password = aPassword;
     }
 
-    public LocalDate getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -86,5 +91,29 @@ public class User {
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public String getGoogleProfilePicture() {
+        return googleProfilePicture;
+    }
+
+    public void setGoogleProfilePicture(String googleProfilePicture) {
+        this.googleProfilePicture = googleProfilePicture;
     }
 }
